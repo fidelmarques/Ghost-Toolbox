@@ -14,8 +14,9 @@ license cannot be established.
 
 1. **Foundation (current MVP):** system discovery, diagnostics, curated package
    metadata, reference inventory, and a non-destructive menu.
-2. **Package management:** explicit confirmation and `winget`-backed installs
-   from stable identifiers, with logs and exit-code handling.
+2. **Package management (initial implementation):** explicit confirmation and
+   `winget`-backed installs from stable identifiers, with logs, exit-code
+   handling, and post-install verification.
 3. **Windows features:** capability detection and reversible management of
    supported optional features.
 4. **Maintenance:** narrowly scoped cleanup operations with previews and clear

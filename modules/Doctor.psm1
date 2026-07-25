@@ -25,7 +25,7 @@ function Test-GhostEnvironment {
         [pscustomobject]@{
             Check = 'winget'
             Status = if (Get-Command winget.exe -ErrorAction SilentlyContinue) { 'Pass' } else { 'Warning' }
-            Detail = 'Required only for future package installation commands.'
+            Detail = 'Required for package installation commands.'
         }
     )
     $checks
