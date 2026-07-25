@@ -1,0 +1,20 @@
+{
+  "SchemaVersion": 1,
+  "Packages": [
+    {
+      "Id": "7zip",
+      "Name": "7-Zip",
+      "WingetId": "7zip.7zip"
+    },
+    {
+      "Id": "firefox",
+      "Name": "Mozilla Firefox",
+      "WingetId": "Mozilla.Firefox"
+    },
+    {
+      "Id": "vcredist",
+      "Name": "Microsoft Visual C++ Redistributable 2015-2022",
+      "WingetId": "Microsoft.VCRedist.2015+.x64"
+    }
+  ]
+}
