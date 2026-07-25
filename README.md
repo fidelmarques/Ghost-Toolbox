@@ -2,9 +2,10 @@
 
 An auditable community port of Ghost Toolbox for standard Windows installations.
 
-> [!WARNING]
-> The legacy 1.9.0 script is retained for research and is not the supported
-> entry point. It contains obsolete downloads and privileged system changes.
+> [!IMPORTANT]
+> The legacy 1.9.0 script and its unsigned `nhcolor.exe` binary were removed
+> from the downloadable source tree. They remain in Git history for research,
+> but are not shipped or executed by the community port.
 
 ## Community port (early MVP)
 
@@ -48,7 +49,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 If an organization enforces execution policy through Group Policy, the
 process-only override may be rejected. In that case, do not weaken the managed
 policy; ask the administrator to review and approve/sign the script.
-The install flow displays the exact `winget` command and asks for confirmation.
+
 For deliberate unattended use, `-AcceptChanges` skips the Toolbox confirmation;
 `winget` still uses an exact package ID and the `winget` source:
 
@@ -64,37 +65,14 @@ See [`reference/README.md`](reference/README.md) for the reproducible inventory
 of the 1.9.1.17 historical reference and [`docs/MIGRATION.md`](docs/MIGRATION.md)
 for the safety gates and implementation roadmap.
 
-## Legacy 1.9.0 instructions
+## Security and antivirus reports
 
-The instructions below describe the archived upstream script and are retained
-for historical context only.
+Do not disable browser or antivirus protection to download this project. The
+current source tree intentionally contains no `.exe`, `.dll`, `.sys`, or `.msi`
+files. If a release archive contains one of those file types, do not run it and
+report the release name and detected file.
 
-## Quick Setup Guide 📋
-
-### Step 1: Download
-- Go to the **Releases** section and download the Ghost Toolbox folder
-- Extract it to your desired location
-
-### Step 2: Install Color Support
-- Find the file called `nhcolor.exe` in the downloaded folder
-- Copy this file to your `C:\Windows\System32` folder
-- *(This file enables colorful text and verifies Ghost Spectre OS compatibility)*
-
-### Step 3: Run the Toolbox
-- Right-click on `Ghost Toolbox.cmd` 
-- Select **"Run as Administrator"**
-- That's it! 🎉
-
-## Important Notes ⚠️
-- The `update.cmd` file is **not included** in this version
-- You **must** run as Administrator for the toolbox to work properly
-- This tool works on any Windows OS, not just Ghost Spectre
-
----
-
-**Disclaimer:** This project is **NOT MADE BY ME** - I'm just sharing an improved version for easier use!
-
-### Preview
-![Ghost Toolbox Screenshot](https://github.com/Batlez/Ghost-Toolbox/assets/116146426/ba477e31-8680-4aa6-8456-f652cb5d6b5c)
-
----
+The historical scripts contained activation commands, certificate validation
+bypasses, and downloads of privileged executables from mutable third-party
+locations. Those behaviors are not part of this port. Package installation is
+delegated to the installed Windows Package Manager using curated exact IDs.
