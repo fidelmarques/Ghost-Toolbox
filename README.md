@@ -48,7 +48,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 If an organization enforces execution policy through Group Policy, the
 process-only override may be rejected. In that case, do not weaken the managed
 policy; ask the administrator to review and approve/sign the script.
-
+The install flow displays the exact `winget` command and asks for confirmation.
 For deliberate unattended use, `-AcceptChanges` skips the Toolbox confirmation;
 `winget` still uses an exact package ID and the `winget` source:
 
