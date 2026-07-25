@@ -1,0 +1,9 @@
+{
+  "SchemaVersion": 1,
+  "Policy": {
+    "UnknownBuild": "BlockMutatingActions",
+    "MinimumPowerShellMajor": 5,
+    "SupportedArchitectures": ["AMD64", "ARM64"]
+  },
+  "ValidatedBuilds": []
+}
