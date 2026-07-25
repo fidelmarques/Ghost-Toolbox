@@ -27,7 +27,9 @@ Non-interactive commands are also available:
 
 From **Command Prompt (`cmd.exe`)**, use the launcher instead. Running a `.ps1`
 path directly in Command Prompt can open the file association (often Notepad)
-instead of invoking PowerShell:
+instead of invoking PowerShell. The launcher uses `-ExecutionPolicy Bypass`
+only for the new PowerShell child process; it does not change the user or
+machine execution policy:
 
 ```bat
 GhostToolbox.cmd -Command Doctor
@@ -35,12 +37,18 @@ GhostToolbox.cmd -Command InstallPackage -PackageId firefox
 ```
 
 From an existing **PowerShell** terminal, package installation can be started
-directly. It displays the exact `winget` command and asks for confirmation:
+directly after allowing scripts for the current process. This setting disappears
+when that PowerShell window is closed:
 
 ```powershell
+Set-ExecutionPolicy -Scope Process Bypass
 .\GhostToolbox.ps1 -Command InstallPackage -PackageId firefox
 ```
 
+If an organization enforces execution policy through Group Policy, the
+process-only override may be rejected. In that case, do not weaken the managed
+policy; ask the administrator to review and approve/sign the script.
+The install flow displays the exact `winget` command and asks for confirmation.
 For deliberate unattended use, `-AcceptChanges` skips the Toolbox confirmation;
 `winget` still uses an exact package ID and the `winget` source:
 
